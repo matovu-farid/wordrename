@@ -34,9 +34,24 @@ Options:
 -w, --with         Word replacing the other word
 ```
 ## Example
-```
+
 Assuming you have a file called file.txt and you want to replace all words foo with bar. Running the command below will replace all words including uppercase, title case and pluralized words
-```
+
+### Single file
 ```
 wordrename -i file.txt -r foo -w bar
+```
+### Multiple files
+```
+wordrename -i file.txt,file2.txt -r foo -w bar
+```
+### Multiple replaced words
+   **Note: The number of replaced words should match the number of words that are replacing them**
+```
+wordrename -i file.txt -r foo,foo2 -w bar,bar2
+```
+### Specifying input directory
+Assuming you have a folder called 'directory_name' that has file whose words you would want to copy and replace all words foo with bar. 
+```
+wordrename -d directory_name -r foo -w bar
 ```

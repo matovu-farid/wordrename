@@ -1,8 +1,8 @@
 import sys
 import getopt
 from help_string import help_string
-from file_helpers import wordrename_file
-from directory_helpers import wordrename_directory
+from file_helpers import delete_file, wordrename_file
+from directory_helpers import delete_directory, wordrename_directory
 
 def main(argv):
     arg_input = ""
@@ -13,7 +13,7 @@ def main(argv):
     arg_help = help_string
     arg_clean = False
     try:
-        opts, _ = getopt.getopt(argv[1:], "hd:i:r:w:o:", ["help", "directory=","input=", 
+        opts, _ = getopt.getopt(argv[1:], "chd:i:r:w:o:", ["clean","help", "directory=","input=", 
         "replaced=","with=", "output="])
 
         
@@ -33,7 +33,7 @@ def main(argv):
       elif opt in ("-d","--directory"):
         arg_directory = arg
       elif opt in ("-c","--clean"):
-        arg_clean = arg
+        arg_clean = True
       elif opt in ("-h","--help"):
         print(arg_help)
         sys.exit(2)
@@ -50,8 +50,11 @@ def main(argv):
 
     if(arg_input != ''):  
       wordrename_file(arg_input,arg_replaced,arg_with,arg_output)
+      if (arg_clean == True): delete_file(arg_input) 
     if arg_directory!= '':
       wordrename_directory(arg_directory,arg_replaced,arg_with,arg_output)
+      if (arg_clean == True): delete_directory(arg_directory)
+    
 
 
 

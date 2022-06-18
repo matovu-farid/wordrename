@@ -3,9 +3,11 @@ import errno
 from file_helpers import delete_file, get_files, replace_all, wordrename_file
 
 def delete_directory(dirname):
-   files = get_files(dirname)
-   for file in files:
-     delete_file(file)
+  files = get_files(dirname)
+  for file in files:
+    delete_file(file)
+  os.rmdir(dirname)
+  
   
 def get_directories(directory_string):
    return directory_string.split(',')

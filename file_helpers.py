@@ -5,6 +5,7 @@ def delete_file(filename):
   if os.path.exists(filename):
     os.remove(filename)
 
+# replaces the input string with an equivalent replacement for various cases(title, upper,lower)
 def replace_all(input:str, replaced: str,replaced_with:str):
   normal = input.replace(replaced,replaced_with)
   plural = normal.replace(f"{replaced}s",f"{replaced_with}s")

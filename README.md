@@ -32,6 +32,7 @@ Options:
 -o, --output       Output filename
 -r, --replaced     Word to replace 
 -w, --with         Word replacing the other word
+-c, --clean        Removes the input file
 ```
 ## Example
 

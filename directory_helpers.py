@@ -6,7 +6,11 @@ def delete_directory(dirname):
   files = get_files(dirname)
   for file in files:
     delete_file(file)
-  os.rmdir(dirname)
+  if not (os.listdir()):
+    os.rmdir(dirname)
+  else:
+    print("There are still some directories")
+    
   
   
 def get_directories(directory_string):

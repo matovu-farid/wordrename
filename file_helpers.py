@@ -16,7 +16,7 @@ def replace_all(input:str, replaced: str,replaced_with:str):
 
 def get_files(directory):
   obj = os.scandir(directory)
-  entrylist = list(filter(lambda x: x.is_file,obj))
+  entrylist = list(filter(lambda x: x.is_file(),obj))
   return list(map(lambda x: x.path,entrylist))
 
 def generate_files(input_name,replaced,replaced_with,output_name):

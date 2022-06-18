@@ -1,6 +1,10 @@
 import os
 import sys
 
+def delete_file(filename):
+  if os.path.exists(filename):
+    os.remove(filename)
+
 def replace_all(input:str, replaced: str,replaced_with:str):
   normal = input.replace(replaced,replaced_with)
   plural = normal.replace(f"{replaced}s",f"{replaced_with}s")

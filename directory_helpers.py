@@ -1,6 +1,12 @@
 import os
 import errno
-from file_helpers import get_files, replace_all, wordrename_file
+from file_helpers import delete_file, get_files, replace_all, wordrename_file
+
+def delete_directory(dirname):
+   files = get_files(dirname)
+   for file in files:
+     delete_file(file)
+  
 def get_directories(directory_string):
    return directory_string.split(',')
 

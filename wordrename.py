@@ -11,6 +11,7 @@ def main(argv):
     arg_directory = ""
     arg_with=""
     arg_help = help_string
+    arg_clean = False
     try:
         opts, _ = getopt.getopt(argv[1:], "hd:i:r:w:o:", ["help", "directory=","input=", 
         "replaced=","with=", "output="])
@@ -31,6 +32,8 @@ def main(argv):
         arg_with = arg
       elif opt in ("-d","--directory"):
         arg_directory = arg
+      elif opt in ("-c","--clean"):
+        arg_clean = arg
       elif opt in ("-h","--help"):
         print(arg_help)
         sys.exit(2)
